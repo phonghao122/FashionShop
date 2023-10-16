@@ -1,0 +1,71 @@
+﻿@model List<Infrastructure.Products.ProductViewModel>
+
+    @foreach(var item in Model)
+{
+    <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+        <div class="product product-7 text-center">
+            <figure class="product-media">
+                <span class="product-label label-new">@item.Status</span>
+                <a href="product.html">
+                    <img src="@item.Image" alt="Product image" class="product-image">
+                </a>
+                <div class="product-action">
+                    @*<a href="#" class="btn-product btn-cart"><span>add to cart</span></a>*@
+                    <button data-id="@item.Id" class="add-to-cart-btn btn-product btn-cart"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                </div><!-- End .product-action -->
+            </figure><!-- End .product-media -->
+
+            <div class="product-body">
+                <div class="product-cat">
+                    <a href="#">Women</a>
+                </div><!-- End .product-cat -->
+                <h3 class="product-title"><a href="product.html">@item.Name</a></h3><!-- End .product-title -->
+                <div class="product-price">
+                    @item.Price
+                </div><!-- End .product-price -->
+                <div class="ratings-container">
+                    <div class="ratings">
+                        @switch(item.Rating)
+                        {
+                            case 0:
+                                {
+                                    <div class="ratings-val" style="width: 0%;"></div>
+                                    break;
+                                }
+                            case 1:
+                                {
+                                    <div class="ratings-val" style="width: 20%;"></div>
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    <div class="ratings-val" style="width: 40%;"></div>
+                                    break;
+                                }
+                            case 3:
+                                {
+                                    <div class="ratings-val" style="width: 60%;"></div>
+                                    break;
+                                }
+                            case 4:
+                                {
+                                    <div class="ratings-val" style="width: 80%;"></div>
+                                    break;
+                                }
+                            case 5:
+                                {
+                                    <div class="ratings-val" style="width: 100%;"></div>
+                                    break;
+                                }
+
+                        }
+
+                    </div><!-- End .ratings -->
+                </div><!-- End .rating-container -->
+            </div><!-- End .product-body -->
+        </div><!-- End .product -->
+    </div>
+
+    <!-- End .col-sm-6 col-lg-4 col-xl-3 -->
+}
+

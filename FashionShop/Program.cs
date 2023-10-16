@@ -1,5 +1,6 @@
 
 
+using Infrastructure.Categories;
 using Infrastructure.Entities;
 using Infrastructure.Products;
 using Microsoft.AspNetCore.Identity;
@@ -16,6 +17,14 @@ builder.Services.AddDbContextPool<FashionShopDbContext>
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<FashionShopDbContext>();
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+//config session
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromHours(6);
+    options.Cookie.HttpOnly = true;
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -28,6 +37,9 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+//add session middleware
+app.UseSession();
 
 app.UseRouting();
 
