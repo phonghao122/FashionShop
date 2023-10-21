@@ -20,7 +20,6 @@ namespace Infrastructure.Entities
         public string Email { get; set; }
 
         [Column(TypeName = "nvarchar(1000)")]
-
         public string CompanyName { get; set; } = string.Empty;
         
         [Column(TypeName = "nvarchar(1000)")]

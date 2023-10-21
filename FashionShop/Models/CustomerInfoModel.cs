@@ -15,8 +15,16 @@ namespace FashionShop.Models
         [EmailAddress]
         public string Email { get; set; }
 
+        public string CompanyName { get; set; } = string.Empty;
+
         [Required]
-        public string Address { get; set; }
+        public string Country { get; set; }
+
+        [Required]
+        public string StreetAddress { get; set; }
+
+        [Required]
+        public string City { get; set; }
 
         [Required]
         public string PhoneNumber { get; set; }

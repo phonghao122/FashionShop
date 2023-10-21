@@ -1,5 +1,6 @@
 
 
+using Infrastructure.Bills;
 using Infrastructure.Categories;
 using Infrastructure.Entities;
 using Infrastructure.Products;
@@ -9,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 builder.Services.AddEntityFrameworkSqlServer();
 builder.Services.AddDbContextPool<FashionShopDbContext>
@@ -18,6 +19,7 @@ builder.Services.AddDbContextPool<FashionShopDbContext>
 builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<FashionShopDbContext>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IBillService, BillService>();
 //config session
 builder.Services.AddSession(options =>
 {

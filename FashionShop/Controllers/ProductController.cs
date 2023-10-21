@@ -39,9 +39,10 @@ namespace FashionShop.Controllers
 			return PartialView(result);
 		}
 
-		public IActionResult Detail()
+		public IActionResult Detail(Guid productId)
         {
-            return View();
-        }
+			var model = _productService.GetProductDetail(productId);
+			return View(model);
+		}
     }
 }

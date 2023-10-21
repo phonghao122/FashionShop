@@ -18,7 +18,7 @@
                 <div class="product">
                     <div class="product-cart-details">
                         <h4 class="product-title">
-                            <a href="product.html">@item.ProductName</a>
+                            <a href="~/Product/Detail?productId=@item.ProductId">@item.ProductName</a>
                         </h4>
 
                         <span class="cart-product-info">
@@ -28,7 +28,7 @@
                     </div><!-- End .product-cart-details -->
 
                     <figure class="product-image-container">
-                        <a href="product.html" class="product-image">
+                        <a href="~/Product/Detail?productId=@item.ProductId" class="product-image">
                             <img src="@item.Image" alt="product">
                         </a>
                     </figure>

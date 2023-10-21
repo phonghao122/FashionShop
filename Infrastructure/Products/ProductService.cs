@@ -61,6 +61,7 @@ namespace Infrastructure.Products
 							  Name = p.Name,
 							  Price = p.Price,
 							  DiscountPrice = p.DiscountPrice,
+                              Quantity = p.Quantity,
 							  Description = p.Description,
 							  Detail = p.Detail,
 							  CategoryName = c.Name,
